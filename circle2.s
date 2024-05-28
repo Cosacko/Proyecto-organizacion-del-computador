@@ -24,9 +24,9 @@ fcircle:
     mul x18,x16,x16//(y-y0)^2
     sub x17,x14,x9//x-x0
     mul x19,x17,x17//(x-x0)^2
-    add x20,x18,x19//(y-y0)^2+(x-x0)^2
+    add x5,x18,x19//(y-y0)^2+(x-x0)^2
     sub x14,x14,1//SCREEN_WIDTH-1
-    cmp x11,x20//comparar (y-y0)^2+(x-x0)^2 y radio al cuadrado        
+    cmp x11,x5//comparar (y-y0)^2+(x-x0)^2 y radio al cuadrado        
     bge loop3   
     add x0,x0,4//siguiente pixel        
     cbnz x14,loop0
@@ -35,6 +35,6 @@ fcircle:
     loop3:
     stur w10,[x0]
     add x0,x0,4//siguiente pixel
-    b loop0  
+    cbnz x15 loop0  
     
     ret
